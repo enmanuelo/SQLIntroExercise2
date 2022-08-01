@@ -32,7 +32,12 @@ WHERE categories.Name = "Appliances" OR categories.Name = "Games";
 
 /* joins: find the product name, total # sold, and total price sold,
  for Eagles: Hotel California --You may need to use SUM() */
-SELECT products.Name, 
+SELECT products.Name, Sum(sales.Quantity) AS Total, SUM(sales.Quantity * sales.PricePerUnit) AS TotalPrice
+FROM products
+INNER JOIN sales
+ON sales.ProductID = products.ProductID
+WHERE products.ProductID = 97;
+
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
 
 
