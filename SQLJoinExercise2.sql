@@ -39,7 +39,12 @@ ON sales.ProductID = products.ProductID
 WHERE products.ProductID = 97;
 
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
-
+SELECT products.Name, reviews.Reviewer, reviews.Rating, reviews.Comment
+FROM reviews
+INNER JOIN products
+WHERE products.Name LIKE "%Visio%TV%"
+ORDER BY reviews.Rating
+LIMIT 3;
 
 -- ------------------------------------------ Extra - May be difficult
 /* Your goal is to write a query that serves as an employee sales report.
